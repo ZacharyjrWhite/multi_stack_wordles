@@ -27,7 +27,7 @@ Check each one off as you finish it.
 
 These versions help define the core UI and logic.
 
-- [ ] React + Vite
+- [x] React + Vite
 - [ ] Vue 3 + Vite
 - [ ] SvelteKit
 - [ ] Next.js (React Server Components)
