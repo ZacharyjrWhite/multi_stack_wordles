@@ -74,13 +74,14 @@ Multiple mobile ecosystems sharing the same game logic.
 - [ ] Distributed API (Docker + Kubernetes)
 
 ## 🚀 Implementations
+✅ 🔄 
 
 ### Frontend (UI-only)
 
 | Status | Stack |
 |--------|-------|
-| 🔄 | React + Vite |
-| ⬜ | Vue 3 + Vite |
+| ✅ | React + Vite |
+| 🔄 | Vue 3 + Vite |
 | ⬜ | SvelteKit |
 | ⬜ | Next.js |
 
