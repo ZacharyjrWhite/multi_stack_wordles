@@ -1,7 +1,7 @@
 import React from 'react';
 import WordleInput from './WordleInput';
 
-const GameGrid = ({ word, guesses, onGuessSubmit }) => {
+const GameGrid = ({ word, guesses, onGuessSubmit, hasWon, hasLost }) => {
     const rows = 6;
     const cols = 5;
 
@@ -36,7 +36,7 @@ const GameGrid = ({ word, guesses, onGuessSubmit }) => {
     return (
         <div className="grid" id="grid">
             {renderGrid()}
-            <WordleInput word={word} guesses={guesses} onGuessSubmit={onGuessSubmit} />
+            <WordleInput word={word} guesses={guesses} onGuessSubmit={onGuessSubmit} hasWon={hasWon} hasLost={hasLost} />
         </div>
     );
 };

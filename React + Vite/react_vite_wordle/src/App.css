@@ -156,6 +156,50 @@ h1 {
   transform: translateY(0);
 }
 
+.lose-popup {
+  background-color: #1a1a1b;
+  border: 2px solid #3a3a3c;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+.lose-popup h2 {
+  margin: 0 0 16px 0;
+  font-size: 32px;
+  color: #d63d7d;
+}
+
+.lose-popup p {
+  margin: 0 0 24px 0;
+  font-size: 18px;
+  color: #d7dadc;
+}
+
+.lose-popup strong {
+  color: #41bd35;
+  font-size: 20px;
+}
+
+.lose-restart-button {
+  background-color: #d63d7d;
+}
+
+.lose-restart-button:hover {
+  background-color: #b92c67;
+  box-shadow: 0 4px 12px rgba(214, 61, 125, 0.3);
+}
+
+.wordle-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #585858;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

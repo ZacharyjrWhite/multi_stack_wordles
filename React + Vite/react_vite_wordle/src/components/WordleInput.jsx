@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRef, useEffect, useState } from 'react';
 
-const WordleInput = ({ word, guesses, onGuessSubmit }) => {
+const WordleInput = ({ word, guesses, onGuessSubmit, hasWon, hasLost }) => {
     const [inputWord, setInputWord] = useState('');
     const inputRef = useRef(null);
     
@@ -13,7 +13,7 @@ const WordleInput = ({ word, guesses, onGuessSubmit }) => {
     
     const handleKeyDown = (e) => {
         if (e.key === 'Enter' && inputWord.trim() !== '') {
-            if (!word || inputWord.length !== 5 || guesses.length >= 6) {
+            if (!word || inputWord.length !== 5 || guesses.length >= 6 || hasWon || hasLost) {
                 return;
             }
 
@@ -39,11 +39,13 @@ const WordleInput = ({ word, guesses, onGuessSubmit }) => {
             placeholder="Enter a 5 letter word" 
             value={inputWord || ''} 
             onChange={(e) => {
+                if (hasWon || hasLost) return;
                 const value = e.target.value.toUpperCase().slice(0, 5);
                 setInputWord(value);
             }}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
+            disabled={hasWon || hasLost}
             autoFocus
         />
     );

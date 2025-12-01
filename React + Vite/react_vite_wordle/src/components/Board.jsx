@@ -7,6 +7,7 @@ const Board = () => {
   const [word, setWord] = useState(null);
   const [guesses, setGuesses] = useState([]);
   const [hasWon, setHasWon] = useState(false);
+  const [hasLost, setHasLost] = useState(false);
   const hasFetched = useRef(false);
 
   const fetchWord = async () => {
@@ -64,7 +65,7 @@ const Board = () => {
   };
 
   const handleGuessSubmit = (guessWord) => {
-    if (!word || guesses.length >= 6 || hasWon) return;
+    if (!word || guesses.length >= 6 || hasWon || hasLost) return;
     
     const evaluation = evaluateGuess(guessWord, word);
     const newGuess = {
@@ -72,29 +73,44 @@ const Board = () => {
       evaluation: evaluation
     };
     
-    setGuesses([...guesses, newGuess]);
+    const updatedGuesses = [...guesses, newGuess];
+    setGuesses(updatedGuesses);
     
     if (evaluation.every(status => status === 'correct')) {
       setHasWon(true);
+    } else if (updatedGuesses.length >= 6) {
+      setHasLost(true);
     }
   };
 
   const handleRestart = () => {
     setGuesses([]);
     setHasWon(false);
+    setHasLost(false);
     hasFetched.current = false;
     fetchWord();
   };
 
   return (
     <>
-      <GameGrid word={word} guesses={guesses} onGuessSubmit={handleGuessSubmit} />
+      <GameGrid word={word} guesses={guesses} onGuessSubmit={handleGuessSubmit} hasWon={hasWon} hasLost={hasLost} />
       {hasWon && (
         <div className="win-popup-overlay">
           <div className="win-popup">
             <h2>🎉 You Won!</h2>
             <p>Congratulations! You guessed the word correctly.</p>
             <button className="restart-button" onClick={handleRestart}>
+              Play Again
+            </button>
+          </div>
+        </div>
+      )}
+      {hasLost && (
+        <div className="win-popup-overlay">
+          <div className="lose-popup">
+            <h2>😔 You Lost!</h2>
+            <p>The word was: <strong>{word?.toUpperCase()}</strong></p>
+            <button className="restart-button lose-restart-button" onClick={handleRestart}>
               Play Again
             </button>
           </div>
