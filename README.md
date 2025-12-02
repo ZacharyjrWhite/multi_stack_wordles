@@ -81,8 +81,8 @@ Multiple mobile ecosystems sharing the same game logic.
 | Status | Stack |
 |--------|-------|
 | ✅ | React + Vite |
-| 🔄 | Vue 3 + Vite |
-| ⬜ | SvelteKit |
+| ✅ | Vue 3 + Vite |
+| 🔄 | SvelteKit |
 | ⬜ | Next.js |
 
 ### Backend APIs
