@@ -82,14 +82,14 @@ Multiple mobile ecosystems sharing the same game logic.
 |--------|-------|
 | ✅ | React + Vite |
 | ✅ | Vue 3 + Vite |
-| 🔄 | SvelteKit |
-| ⬜ | Next.js |
+| ✅ | SvelteKit |
+| ✅ | Next.js |
 
 ### Backend APIs
 
 | Status | Stack |
 |--------|-------|
-| ⬜ | Node.js + Express |
+| 🔄 | Node.js + Express |
 | ⬜ | PHP (Vanilla) |
 | ⬜ | Laravel |
 | ⬜ | Python Flask |
